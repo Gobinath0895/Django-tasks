@@ -21,9 +21,8 @@ def show_ben_emp(request):
     benemp.delete()
     a = Employee.objects.values_list('Employee_name', flat=True)
     b = Project.objects.values_list('Project_employees', flat=True)
-    c = Benchemp.objects.values_list('Benchemp_name', flat=True)
     for i in a:
-        if i not in b and i not in c:
+        if i not in b:
             benemp = Benchemp.objects.create(Benchemp_name=i)
             benemp.save()    
     benemp = Benchemp.objects.all()
@@ -47,10 +46,10 @@ def addproject(request):
     if request.method == 'POST':
         id = int(request.POST["Project_id"])
         name = str(request.POST["Project_name"])
-        emp = str(request.POST["Emp"])
-        print(request.POST)
-        project = Project(Project_id=id,Project_name=name,Project_employees=emp)
-        project.save()
+        emp = request.POST.getlist("Emp")
+        for i in emp:
+            project = Project(Project_id=id,Project_name=name,Project_employees=i)
+            project.save()
         l = Project.objects.values_list('Project_employees', flat=True)
         for i in range(len(l)):
             name = Project.objects.values_list('Project_employees', flat=True)[i]
