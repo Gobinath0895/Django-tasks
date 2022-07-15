@@ -1,0 +1,36 @@
+<html>
+    <title>About</title>
+        <h1>Employee Details</h1>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+            }
+            </style>
+        {% block content %}
+        {% csrf_token %}
+            <table style= 'width:50%'>
+                <thead>
+                    <td><b>Employee ID</b></td>
+                    <td><b>Employee Name</b></td>
+                    <td><b>Employees Address</b></td>
+                    <td><b>Employee Pphone Number</b></td>
+                    <td><b>Operations</b></td>
+
+                </thead>
+                <tr>
+                    {% for i in emp %}
+                    <td>{{i.Employee_id}}</td>
+                    <td>{{i.Employee_name}}</td>
+                    <td>{{i.Employees_address}}</td>
+                    <td>{{i.Employee_phone_number}}</td>
+                    <td><a href="/update_emp/{{i.id}}"><button type='button' style="background-color: #737373;border-color:rgb(199, 189, 189); color:black">Update</button></a> 
+                        <a href="/delete_emp/{{i.id}}"><button type='button' style="background-color: #737373;border-color:rgb(227, 216, 216); color:red">Delete</button></a></td>
+                </tr>
+                    {%endfor%}
+                </table>
+                    <a href="/addemp/"><button type="button" style="background-color: #737373;border-color:rgb(22, 20, 20); color:whitesmoke">Add Employee</button></a>
+                    <a href='/'><button type="button" style="background-color: #737373;border-color:rgb(22, 20, 20); color:whitesmoke">Back to home</button></a>
+            {%endblock%}
+    
+</html>
+

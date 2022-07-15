@@ -1,0 +1,29 @@
+<html>
+{% block content %}
+<h1>Student Details</h1>
+<table style="width : 50%">
+    
+<thead>
+<th> Student No.</th>
+<th> Student Name</th>
+<th> Student Class</th>
+<th> Student Address</th>
+<th> Operations </th>
+</thead>
+<tr>
+    {% for i in student %}
+
+        <td>{{i.sno}}</td>
+        <td>{{i.sname}}</td>
+        <td>{{i.sclass}}</td>
+        <td>{{i.saddress}}</td>
+        <td><a href="/update/{{i.sno}}"><button type='button'>Update</button></a> 
+            <a href="/delete/{{i.sno}}"><button type='button'>Delete</button></a></td>
+</tr>
+    {% endfor %}
+</table>
+<a href="/create"> <button type="button">Add new student</button> </a>
+{% endblock %}
+
+</html>
+

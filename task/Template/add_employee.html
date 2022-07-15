@@ -1,0 +1,11 @@
+<html>
+    <title>ADD</title>
+        <h1>Add Employees</h1>
+        {% block content %}
+        <form method='POST'>
+            {{form.as_p}}
+            <input type="submit" value="Add Employee">
+            {% csrf_token %}
+        </form>
+        {%endblock%}
+</html>

@@ -1,0 +1,14 @@
+<html>
+    <title>Update</title>
+        <h1>Update Project Details</h1>
+        {% block content %}
+        <form method="post">
+        {% csrf_token %}
+        Project ID : <input type="text" name="Project_id" value="{{project.Project_id}}"><br>
+        Project Name : <input type="text" name="Project_name" value="{{project.Project_name}}"><br> 
+        Project Employee : <input type="text" name="Project_employees" value="{{project.Project_employees}}"><br> 
+
+                <input type="submit" value="Update">
+                </form>
+            {%endblock%}
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <title>ADD</title>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.1/js/select2.min.js" integrity="sha512-hCkPU8v58lKyLh5KiwA3Yj1kq+YkNPv5IZ46CaSeGDE1dUPGgm+mG/YAm7pnGJLPoLCOrrYi558ID4iSr6EVhQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-beta.1/css/select2.min.css" integrity="sha512-boCIdJNep+VcmdgkPJZOlXb9taUopveV0moUBYYSZKf6aoY/m5EyLDMrNQbm85P9OCGP9kflcJCRJf4mfJJ71w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script>
+            $(document).ready(function()
+            {
+                $('#ddlselect').select2({
+                    placeholder:'Select Employee...',
+                    closeOnSelect:false
+                });
+            });
+        </script>
+    </head>
+        <h1>Add Project</h1>
+        {% block content %}
+        <form method='POST'>
+            Project ID : <input type="text", name="Project_id"><br><br>
+            Project Name : <input type="text", name="Project_name"><br><br>
+            Project Employees:
+            
+            <select id='ddlselect' multiple style="width:250px;" name="Emp">
+                {% for i in empname %} 
+                <option> {{i.Benchemp_name}} </option>
+                {%endfor%}
+            </select><br><br>
+            <input type="submit" value="Add Project">
+            {% csrf_token %}
+        </form>
+        {%endblock%}
+</html>

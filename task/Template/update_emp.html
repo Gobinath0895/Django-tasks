@@ -1,0 +1,14 @@
+<html>
+    <title>Update</title>
+        <h1>Update Employee Details</h1>
+        {% block content %}
+        <form method="post">
+        {% csrf_token %}
+        Employee ID : <input type="text" name="Employee_id" value="{{employee.Employee_id}}"><br>
+        Employee Name : <input type="text" name="Employee_name" value="{{employee.Employee_name}}"><br> 
+        Employee Address : <input type="text" name="Employees_address" value="{{employee.Employees_address}}"><br>
+        Employees Phone Number: <input type="text" name="Employee_phone_number" value="{{employee.Employee_phone_number}}"><br>
+                <input type="submit" value="Update">
+                </form>
+            {%endblock%}
+</html>

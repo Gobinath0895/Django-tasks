@@ -1,0 +1,14 @@
+<html>
+    <title>Update</title>
+        <h1> Update Student Details</h1>
+            {% block content %}
+            <form method="POST">   
+                Student Roll No: <input type="text" name="sno" value="{{student.sno}}"><br>
+                Student Name: <input type="text" name="sname" value="{{student.sname}}"><br>
+                Student Class: <input typte="text" name="sclass" value="{{student.sclass}}"><br>
+                Student Address: <input type="text" name="saddress" value="{{student.saddress}}"><br>
+                {% csrf_token %}
+                <input type="submit" value="Upadate">
+            </form>
+            {% endblock %}
+</html>

@@ -1,0 +1,95 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Gobinath0895 
+Surendran22
+/
+landing-web-pages
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+landing-web-pages/Starbucks/index.html
+@Surendran22
+Surendran22 first commit
+Latest commit d70b854 2 days ago
+ History
+ 1 contributor
+53 lines (53 sloc)  2.2 KB
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>STARBUCKS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#" class="logo"><img src="logo.png"></a>
+            <u1>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">What's New</a></li>
+                <li><a href="#">Contact</a></li>
+            </u1>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>It's not just Coffee<br>It's <span>Starbucks</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quo! Ut placeat eum adipisci facilis, aut voluptatem quas pariatur distinctio fuga ducimus necessitatibus. Vitae unde quasi quas aperiam obcaecati rem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus id ipsa dignissimos molestiae minima.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="imgBox">
+                <img src="img1.png" class="starbucks">
+            </div>
+        </div>
+        <u1 class="thumb">
+            <li><img src="thumb1.png" onclick="imgSlider('img1.png');changeCircleColor('#017143')"></li>
+            <li><img src="thumb2.png" onclick="imgSlider('img2.png');changeCircleColor('#eb7495')"></li>
+            <li><img src="thumb3.png" onclick="imgSlider('img3.png');changeCircleColor('#d752b1')"></li>
+        </u1>
+        <u1 class="sci">
+            <li><a href="#"><img src="facebook.png"></a></li>
+            <li><a href="#"><img src="twitter.png"></a></li>
+            <li><a href="#"><img src="instagram.png"></a></li>
+        </u1>
+    </section>
+    <script type="text/javascript">
+        function imgSlider(anything){
+            document.querySelector('.starbucks').src = anything;
+        }
+        function changeCircleColor(color){
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+    </script>
+</body>
+</html>
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
