@@ -24,7 +24,7 @@ def show_ben_emp(request):
     for i in a:
         if i not in b:
             benemp = Benchemp.objects.create(Benchemp_name=i)
-            benemp.save()    
+            benemp.save()   
     benemp = Benchemp.objects.all()
     return render(request, 'show_ben_emp.html', {'bemp':benemp})
 
@@ -50,18 +50,17 @@ def addproject(request):
         for i in emp:
             project = Project(Project_id=id,Project_name=name,Project_employees=i)
             project.save()
-        l = Project.objects.values_list('Project_employees', flat=True)
-        for i in range(len(l)):
-            name = Project.objects.values_list('Project_employees', flat=True)[i]
-            if name in Benchemp.objects.values_list('Benchemp_name', flat=True):
-                benemp = Benchemp.objects.get(Benchemp_name=name)
-                benemp.delete()
+            benemp = Benchemp.objects.get(Benchemp_name=i)
+            benemp.delete()
         return redirect('/show_proj')
     return render(request, 'add_project.html',{'empname':name})
 
 def delete_emp(request,id):
     employee = Employee.objects.get(id=id)
     employee.delete()
+    name = employee.Employee_name
+    benemp = Benchemp.objects.get(Benchemp_name = name)
+    benemp.delete()
     return redirect('/show_emp')
 
 def update_emp(request,id):
@@ -76,15 +75,9 @@ def update_emp(request,id):
 def delete_proj(request,id):
     project = Project.objects.get(id=id)
     project.delete()
-    benemp = Benchemp.objects.all()
-    benemp.delete()
-    a = Employee.objects.values_list('Employee_name', flat=True)
-    b = Project.objects.values_list('Project_employees', flat=True)
-    c = Benchemp.objects.values_list('Benchemp_name', flat=True)
-    for i in a:
-        if i not in b and i not in c:
-            benemp = Benchemp.objects.create(Benchemp_name=i)
-            benemp.save()    
+    name = project.Project_employees
+    bechemp = Benchemp.objects.create(Benchemp_name = name)
+    bechemp.save()   
     return redirect('/show_proj')
 
 def update_proj(request,id):
